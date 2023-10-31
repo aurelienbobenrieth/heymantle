@@ -1,0 +1,11 @@
+{
+  "name": "heymantle",
+  "version": "0.0.1",
+  "description": "HeyMantle client & server packages.",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {},
+  "devDependencies": {
+    "@types/node": "^20.8.10"
+  }
+}

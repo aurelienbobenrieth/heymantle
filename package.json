@@ -4,8 +4,23 @@
   "description": "HeyMantle client & server packages.",
   "license": "UNLICENSED",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "lint:types": "tsc --noEmit",
+    "lint:eslint": "eslint --ext .ts,.tsx .",
+    "lint:eslint:fix": "eslint --ext .ts,.tsx --fix .",
+    "lint:prettier": "prettier --check .",
+    "lint:prettier:write": "prettier --write .",
+    "lint": "yarn lint:types && yarn lint:eslint && yarn lint:prettier",
+    "lint:fix": "yarn lint:eslint:fix && yarn lint:prettier:write"
+  },
   "devDependencies": {
-    "@types/node": "^20.8.10"
+    "@types/node": "^20.8.10",
+    "eslint": "^8.52.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.4",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
   }
 }

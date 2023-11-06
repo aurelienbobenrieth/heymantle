@@ -1,0 +1,9 @@
+{
+  "name": "@heymantle/prettier",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.cjs",
+  "devDependencies": {
+    "prettier": "^3.0.3"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "extends": "@heymantle/tsconfig/base.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "types": ["node"],
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "paths": {
+      "#core": ["./src/core"],
+      "#types": ["./src/types"]
+    }
+  },
+  "include": ["./src/**/*"]
+}

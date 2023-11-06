@@ -1,10 +1,7 @@
 {
-  "name": "@heymantle/base",
+  "name": "@heymantle/client",
+  "version": "0.1.0",
   "license": "UNLICENSED",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "lint:types": "tsc --noEmit",
     "lint:eslint": "eslint --ext .ts,.tsx .",
@@ -14,10 +11,14 @@
     "lint": "pnpm lint:types && pnpm lint:eslint && pnpm lint:prettier",
     "lint:fix": "pnpm lint:eslint:fix && pnpm lint:prettier:write"
   },
+  "dependencies": {
+    "valibot": "^0.20.0"
+  },
   "devDependencies": {
     "@heymantle/eslint": "workspace:*",
     "@heymantle/prettier": "workspace:*",
     "@heymantle/tsconfig": "workspace:*",
+    "@types/node": "^20.8.10",
     "eslint": "^8.52.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"

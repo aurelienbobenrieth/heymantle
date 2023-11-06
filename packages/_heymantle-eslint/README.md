@@ -1,1 +1,0 @@
-# @heymantle/eslint

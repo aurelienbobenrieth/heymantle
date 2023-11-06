@@ -1,4 +1,4 @@
-import { MyshopifyDomain } from "#server/types/shopify.types";
+import { MyshopifyDomain } from "#types/shopify.types";
 
 type SupportedPlatform = "stripe" | "shopify";
 

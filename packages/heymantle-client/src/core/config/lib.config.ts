@@ -1,4 +1,4 @@
-import { object, string, parse } from "valibot";
+import { object, parse, string } from "valibot";
 
 const ConfigSchema = object({
   public: object({

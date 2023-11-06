@@ -1,12 +1,13 @@
 import { libConfig } from "#core/config/lib.config";
-import { MantleClientProps, MantleRequestInput } from "./types";
+
+import { MantleClientProps } from "./types";
 
 export default class MantleClient {
   private appId: string;
   private appApiKey: string;
 
   public apiUrl: string;
-  private logger: any;
+  private logger: unknown;
 
   constructor({
     appId,

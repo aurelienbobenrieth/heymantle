@@ -5,6 +5,26 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
-    "lint": {}
+    "lint:types": {
+      "cache": false
+    },
+    "lint:eslint": {
+      "cache": false
+    },
+    "lint:eslint:fix": {
+      "cache": false
+    },
+    "lint:prettier": {
+      "cache": false
+    },
+    "lint:prettier:write": {
+      "cache": false
+    },
+    "lint": {
+      "cache": false
+    },
+    "lint:fix": {
+      "cache": false
+    }
   }
 }

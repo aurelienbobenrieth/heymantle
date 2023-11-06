@@ -6,21 +6,22 @@
     "packages/*"
   ],
   "scripts": {
-    "lint:types": "tsc --noEmit",
-    "lint:eslint": "eslint --ext .ts,.tsx .",
-    "lint:eslint:fix": "eslint --ext .ts,.tsx --fix .",
-    "lint:prettier": "prettier --check .",
-    "lint:prettier:write": "prettier --write .",
-    "lint": "pnpm lint:types && pnpm lint:eslint && pnpm lint:prettier",
-    "lint:fix": "pnpm lint:eslint:fix && pnpm lint:prettier:write"
+    "lint:types": "turbo run lint:types",
+    "lint:eslint": "turbo run lint:eslint",
+    "lint:eslint:fix": "turbo run lint:eslint:fix",
+    "lint:prettier": "turbo run lint:prettier",
+    "lint:prettier:write": "turbo run lint:prettier:write",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix"
   },
   "devDependencies": {
-    "@heymantle/eslint": "workspace:*",
-    "@heymantle/prettier": "workspace:*",
+    "eslint-config-heymantle": "workspace:*",
+    "@heymantle/prettier-config": "workspace:*",
     "@heymantle/tsconfig": "workspace:*",
     "eslint": "^8.52.0",
     "prettier": "^3.0.3",
+    "turbo": "^1.10.16",
     "typescript": "^5.2.2"
   },
-  "prettier": "@heymantle/prettier"
+  "prettier": "@heymantle/prettier-config"
 }

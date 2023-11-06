@@ -15,13 +15,13 @@
     "valibot": "^0.20.0"
   },
   "devDependencies": {
-    "@heymantle/eslint": "workspace:*",
-    "@heymantle/prettier": "workspace:*",
+    "eslint-config-heymantle": "workspace:*",
+    "@heymantle/prettier-config": "workspace:*",
     "@heymantle/tsconfig": "workspace:*",
     "@types/node": "^20.8.10",
     "eslint": "^8.52.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
   },
-  "prettier": "@heymantle/prettier"
+  "prettier": "@heymantle/prettier-config"
 }

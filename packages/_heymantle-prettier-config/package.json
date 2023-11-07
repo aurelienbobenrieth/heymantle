@@ -2,7 +2,7 @@
   "name": "@heymantle/prettier-config",
   "version": "0.1.0",
   "private": true,
-  "main": "index.cjs",
+  "main": "index.js",
   "devDependencies": {
     "prettier": "^3.0.3"
   }

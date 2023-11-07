@@ -7,7 +7,12 @@ module.exports = {
   extends: ["prettier", "eslint:recommended"],
   plugins: ["prettier", "simple-import-sort"],
   rules: {
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+      },
+    ],
     "simple-import-sort/imports": "warn",
     "simple-import-sort/exports": "warn",
   },

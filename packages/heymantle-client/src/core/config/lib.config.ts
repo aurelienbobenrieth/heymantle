@@ -3,7 +3,10 @@ import { object, parse, string } from "valibot";
 const ConfigSchema = object({
   public: object({
     mantle: object({
-      apiUrl: string(),
+      apiRootUrl: string(),
+      apiVersions: object({
+        v1: string(),
+      }),
     }),
   }),
 });
@@ -11,7 +14,10 @@ const ConfigSchema = object({
 export const libConfig = parse(ConfigSchema, {
   public: {
     mantle: {
-      apiUrl: "https://appapi.heymantle.com/v1",
+      apiRootUrl: "https://appapi.heymantle.com",
+      apiVersions: {
+        v1: "v1",
+      },
     },
   },
 });

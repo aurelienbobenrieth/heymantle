@@ -1,1 +1,27 @@
 export type HttpMethod = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
+
+export type ContentType =
+  | "application/json"
+  | "application/x-www-form-urlencoded"
+  | "multipart/form-data"
+  | "text/html"
+  | "text/plain"
+  | "image/png"
+  | "image/jpeg"
+  | "application/xml"
+  | "application/zip"
+  | "application/pdf"
+  | "application/sql"
+  | "application/graphql"
+  | "application/ld+json"
+  | "application/msword"
+  | "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  | "application/vnd.ms-excel"
+  | "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  | "application/vnd.ms-powerpoint"
+  | "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+  | "text/csv"
+  | "text/css"
+  | "text/javascript"
+  | "font/woff"
+  | "font/woff2";

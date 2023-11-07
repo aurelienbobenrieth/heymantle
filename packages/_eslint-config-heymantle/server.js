@@ -1,7 +1,3 @@
-const { resolve } = require("node:path");
-
-const project = resolve(process.cwd(), "tsconfig.json");
-
 /** @type { import("eslint").Linter.BaseConfig } */
 module.exports = {
   env: {
@@ -19,15 +15,6 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
   ],
-  plugins: ["prettier", "simple-import-sort", "@typescript-eslint"],
-  rules: {
-    "prettier/prettier": [
-      "error",
-      {
-        endOfLine: "auto",
-      },
-    ],
-    "simple-import-sort/imports": "warn",
-    "simple-import-sort/exports": "warn",
-  },
+  plugins: ["prettier", "@typescript-eslint"],
+  rules: {},
 };

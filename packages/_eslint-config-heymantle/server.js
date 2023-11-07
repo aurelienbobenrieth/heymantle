@@ -1,11 +1,25 @@
+const { resolve } = require("node:path");
+
+const project = resolve(process.cwd(), "tsconfig.json");
+
 /** @type { import("eslint").Linter.BaseConfig } */
 module.exports = {
   env: {
     node: true,
     es6: true,
   },
-  extends: ["prettier", "eslint:recommended"],
-  plugins: ["prettier", "simple-import-sort"],
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: "packages/*/tsconfig.json",
+  },
+  extends: [
+    "prettier",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+  ],
+  plugins: ["prettier", "simple-import-sort", "@typescript-eslint"],
   rules: {
     "prettier/prettier": [
       "error",
@@ -16,15 +30,4 @@ module.exports = {
     "simple-import-sort/imports": "warn",
     "simple-import-sort/exports": "warn",
   },
-  overrides: [
-    {
-      files: ["*.ts", "*.tsx"],
-      parser: "@typescript-eslint/parser",
-      parserOptions: {
-        project: "packages/*/tsconfig.json",
-      },
-      extends: ["plugin:@typescript-eslint/recommended"],
-      plugins: ["@typescript-eslint"],
-    },
-  ],
 };

@@ -1,16 +1,18 @@
-import { ContentType, HttpMethod } from "#types/request.types";
-import { UnknownJson, WithLeadingSlashString } from "#types/utils.types";
+import { HttpMethod } from "#types/request.types";
+import { UnknownJson } from "#types/utils.types";
 
 export interface MantleClientProps {
-  appId: string;
-  appApiKey: string;
   apiVersion?: string;
+  appApiKey: string;
+  appId: string;
   logger?: unknown;
 }
 
 export interface MantleRequestInput {
-  path: WithLeadingSlashString;
-  method?: HttpMethod;
-  contentType?: ContentType;
   body?: UnknownJson;
+  headers?: HeadersInit;
+  method?: HttpMethod;
+  url: string;
 }
+
+export interface Customer {}

@@ -7,8 +7,9 @@
     "baseUrl": ".",
     "paths": {
       "#core/*": ["./src/core/*"],
+      "#test/*": ["./src/test/*"],
       "#types/*": ["./src/types/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "vitest.config.ts"]
 }

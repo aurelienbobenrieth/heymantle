@@ -1,5 +1,6 @@
 import { libConfig } from "#core/config/lib.config";
 
+import IdentifyEndpoint from "./endpoints/identify/IdentifyEndpoint";
 import { MantleClientProps, MantleRequestInput } from "./types";
 
 export default class MantleClient {
@@ -8,6 +9,7 @@ export default class MantleClient {
   private logger: unknown;
 
   public apiUrl: string;
+  public identify: IdentifyEndpoint;
 
   private constructor({
     appId,
@@ -21,9 +23,11 @@ export default class MantleClient {
     this.apiUrl = `${libConfig.public.mantle.apiRootUrl}/${apiVersion}`;
 
     this.logger = logger;
+
+    this.identify = new IdentifyEndpoint(this);
   }
 
-  public static initializeWithApiKey({
+  public static withApiKey({
     appId,
     appApiKey,
     apiVersion,
@@ -38,20 +42,29 @@ export default class MantleClient {
     return new MantleClient({ appId, appApiKey, apiVersion, logger });
   }
 
-  private async authenticatedMantleRequest<TReturnType>({
-    path,
+  // public buildHeaders({
+  //   contentType,
+  //   mantleAppId,
+  //   mantleAppApiKey,
+  //   mantleCustomerApiToken
+  // }: ): HeadersInit | undefined {
+  //   return {};
+  // }
+  public async makeRequest<TReturnType>({
+    url,
     method = "GET",
-    contentType = "application/json",
+    headers,
     body,
   }: MantleRequestInput): Promise<TReturnType> {
-    const endpointUrl = `${this.apiUrl}${path}`;
+    const endpointUrl = `${this.apiUrl}${url}`;
     const options: RequestInit = {
       method,
       headers: {
-        "Content-Type": contentType,
+        "Content-Type": "application/json",
         Accept: "application/json",
         "X-Mantle-App-Id": this.appId,
         "X-Mantle-App-Api-Key": this.appApiKey,
+        ...headers,
       },
       body: body ? JSON.stringify(body) : undefined,
     };

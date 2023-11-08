@@ -9,7 +9,10 @@
     "lint:fix": "pnpm lint:eslint:fix && pnpm lint:prettier:write",
     "lint:prettier": "prettier --check .",
     "lint:prettier:write": "prettier --write .",
-    "lint:types": "tsc --noEmit"
+    "lint:types": "tsc --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest",
+    "test:watch": "vitest"
   },
   "prettier": "@heymantle/prettier-config",
   "dependencies": {
@@ -19,9 +22,11 @@
     "@heymantle/prettier-config": "workspace:*",
     "@heymantle/tsconfig": "workspace:*",
     "@types/node": "^20.8.10",
+    "dotenv": "^16.3.1",
     "eslint": "^8.52.0",
     "eslint-config-heymantle": "workspace:*",
     "prettier": "^3.0.3",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
   }
 }

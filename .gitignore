@@ -20,9 +20,10 @@
 # code editor
 .vscode
 
-# local env files
+# env files
+.env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.development
+.env.test
+.env.production
 .devcontainer/devcontainer.env

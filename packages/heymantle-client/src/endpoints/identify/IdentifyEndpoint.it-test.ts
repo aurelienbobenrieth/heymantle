@@ -8,7 +8,7 @@ import MantleClient from "../../MantleClient";
 import { buildWithApiKeyClientInstance } from "../../test/MantleClientBuilder";
 import { IdentifyCustomerInput, IdentifyCustomerResponse } from "./types";
 
-describe("CustomerEndpoint", () => {
+describe("IdentifyEndpoint", () => {
   let sut: MantleClient;
   const sutFailingConfig: IdentifyCustomerInput = {
     // @ts-expect-error: intentionally invalid
@@ -50,11 +50,11 @@ describe("CustomerEndpoint", () => {
     const result: IdentifyCustomerResponse =
       await sut.identify.identifyCustomer(sutValidConfig);
 
-    if ("apiToken" in result) {
+    if ("error" in result) {
+      expect.fail("Expected a success response with an apiToken");
+    } else {
       expect(result).toHaveProperty("apiToken");
       expect(result.apiToken).toBeTypeOf("string");
-    } else {
-      expect.fail("Expected a success response with an apiToken");
     }
   });
 });

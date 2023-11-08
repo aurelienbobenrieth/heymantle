@@ -18,6 +18,7 @@ const ConfigSchema = object({
         accessToken: string(),
         name: string(),
         email: string(),
+        mantleCustomerApiToken: string(),
       }),
     }),
   }),
@@ -37,6 +38,8 @@ export const testConfig = parse(ConfigSchema, {
         accessToken: process.env.SHOPIFY_TEST_SHOP_ACCESS_TOKEN,
         name: process.env.SHOPIFY_TEST_SHOP_NAME,
         email: process.env.SHOPIFY_TEST_SHOP_EMAIL,
+        mantleCustomerApiToken:
+          process.env.SHOPIFY_TEST_SHOP_MANTLE_CUSTOMER_API_TOKEN,
       },
     },
   },

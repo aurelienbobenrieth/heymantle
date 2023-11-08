@@ -1,6 +1,8 @@
 import { MyshopifyDomain } from "#types/shopify.types";
 import { UnknownJson } from "#types/utils.types";
 
+import { MantleErrorResponse } from "../types";
+
 type SupportedPlatform = "stripe" | "shopify";
 
 export interface IdentifyCustomerInput extends UnknownJson {
@@ -25,10 +27,7 @@ export interface IdentifyCustomerSuccessResponse {
   apiToken: string;
 }
 
-export interface IdentifyCustomerErrorResponse {
-  // error message
-  error: string;
-}
+export interface IdentifyCustomerErrorResponse extends MantleErrorResponse {}
 
 export type IdentifyCustomerResponse =
   | IdentifyCustomerSuccessResponse

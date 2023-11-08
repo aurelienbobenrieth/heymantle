@@ -1,7 +1,8 @@
 import { libConfig } from "#core/config/lib.config";
 
+import CustomerEndpoint from "./endpoints/customer/CustomerEndpoint";
 import IdentifyEndpoint from "./endpoints/identify/IdentifyEndpoint";
-import { MantleClientProps, MantleRequestInput } from "./types";
+import { AllowedHeaders, MantleClientProps, MantleRequestInput } from "./types";
 
 export default class MantleClient {
   private appApiKey: string;
@@ -9,6 +10,7 @@ export default class MantleClient {
   private logger: unknown;
 
   public apiUrl: string;
+  public customer: CustomerEndpoint;
   public identify: IdentifyEndpoint;
 
   private constructor({
@@ -24,6 +26,7 @@ export default class MantleClient {
 
     this.logger = logger;
 
+    this.customer = new CustomerEndpoint(this);
     this.identify = new IdentifyEndpoint(this);
   }
 
@@ -42,14 +45,6 @@ export default class MantleClient {
     return new MantleClient({ appId, appApiKey, apiVersion, logger });
   }
 
-  // public buildHeaders({
-  //   contentType,
-  //   mantleAppId,
-  //   mantleAppApiKey,
-  //   mantleCustomerApiToken
-  // }: ): HeadersInit | undefined {
-  //   return {};
-  // }
   public async makeRequest<TReturnType>({
     url,
     method = "GET",
@@ -59,13 +54,7 @@ export default class MantleClient {
     const endpointUrl = `${this.apiUrl}${url}`;
     const options: RequestInit = {
       method,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "X-Mantle-App-Id": this.appId,
-        "X-Mantle-App-Api-Key": this.appApiKey,
-        ...headers,
-      },
+      headers: this.buildHeaders(headers),
       body: body ? JSON.stringify(body) : undefined,
     };
 
@@ -73,5 +62,22 @@ export default class MantleClient {
     const result = await response.json();
 
     return result;
+  }
+
+  private buildHeaders(
+    inputHeaders?: Partial<AllowedHeaders>,
+  ): Partial<AllowedHeaders> {
+    const headers: Partial<AllowedHeaders> = {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      "X-Mantle-App-Id": this.appId,
+    };
+
+    if (inputHeaders && inputHeaders["X-Mantle-Customer-Api-Token"])
+      headers["X-Mantle-Customer-Api-Token"] =
+        inputHeaders["X-Mantle-Customer-Api-Token"];
+    else headers["X-Mantle-App-Api-Key"] = this.appApiKey;
+
+    return headers;
   }
 }

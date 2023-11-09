@@ -1,12 +1,16 @@
-import { type Output, literal, number, object, string, union } from "valibot";
+import { type Output, literal, number, object, string, union, nullable } from "valibot";
 
-export const UsageChargeTypeSchema = union([literal('percent'),literal("unit"), literal("unit_limits")]);
+export const UsageChargeTypeSchema = union([
+  literal("percent"),
+  literal("unit"),
+  literal("unit_limits"),
+]);
 
 export const UsageChargeSchema = object({
   id: string(),
   amount: number(),
   type: UsageChargeTypeSchema,
-  terms: string(),
+  terms: nullable(string()),
   cappedAmount: number(),
   eventName: string(),
 });

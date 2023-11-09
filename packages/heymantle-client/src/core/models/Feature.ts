@@ -1,4 +1,13 @@
-import { type Output, boolean, literal, number, object, string, union } from "valibot";
+import {
+  type Output,
+  boolean,
+  literal,
+  nullable,
+  number,
+  object,
+  string,
+  union,
+} from "valibot";
 
 export const FeatureTypeSchema = union([
   literal("boolean"),
@@ -11,7 +20,7 @@ export const FeatureSchema = object({
   name: string(),
   type: FeatureTypeSchema,
   description: string(),
-  value: union([boolean(), number()]),
+  value: nullable(union([boolean(), string()])),
   displayOrder: number(),
 });
 

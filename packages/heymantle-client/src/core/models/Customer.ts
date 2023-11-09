@@ -17,8 +17,8 @@ export const CustomerSchema = object({
   test: boolean(),
   plans: array(PlanSchema),
   subscription: nullable(string()),
-  features: array(FeatureSchema),
-  usage: record(string(), UsageSchema),
+  features: record(string(), FeatureSchema),
+  usage: UsageSchema,
   customFields: record(string(), string()),
 });
 

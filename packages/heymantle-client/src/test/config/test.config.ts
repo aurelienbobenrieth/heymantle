@@ -9,6 +9,7 @@ const ConfigSchema = object({
     mantle: object({
       appId: string(),
       appApiKey: string(),
+      planId: string(),
     }),
     testPlatform: SupportedPlatformSchema,
     shopify: object({
@@ -27,8 +28,9 @@ const ConfigSchema = object({
 export const testConfig = parse(ConfigSchema, {
   private: {
     mantle: {
-      appId: process.env.MANTLE_APP_ID,
-      appApiKey: process.env.MANTLE_APP_API_KEY,
+      appId: process.env.MANTLE_TEST_APP_ID,
+      appApiKey: process.env.MANTLE_TEST_APP_API_KEY,
+      planId: process.env.MANTLE_TEST_PLAN_ID,
     },
     testPlatform: process.env.TEST_PLATFORM,
     shopify: {

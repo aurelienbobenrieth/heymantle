@@ -2,12 +2,12 @@ import { Customer } from "#core/models/Customer";
 
 import { MantleErrorResponse } from "../types";
 
-export interface GetCustomerSuccessResponse {
+export interface CustomerGetSuccessResponse {
   customer: Customer;
 }
 
-export interface GetCustomerErrorResponse extends MantleErrorResponse {}
+export interface CustomerGetErrorResponse extends MantleErrorResponse {}
 
-export type GetCustomerResponse =
-  | GetCustomerSuccessResponse
-  | GetCustomerErrorResponse;
+export type CustomerGetResonse =
+  | CustomerGetSuccessResponse
+  | CustomerGetErrorResponse;

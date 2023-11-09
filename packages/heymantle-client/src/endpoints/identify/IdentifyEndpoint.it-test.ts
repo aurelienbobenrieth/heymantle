@@ -34,27 +34,29 @@ describe("IdentifyEndpoint", () => {
     sut = buildWithApiKeyClientInstance();
   });
 
-  it("should respond with an error message when invalid data is provided", async () => {
-    const result: IdentifyCustomerResponse =
-      await sut.identify.identifyCustomer(sutFailingConfig);
+  describe("identifyCustomer", () => {
+    it("should respond with an error message when invalid data is provided", async () => {
+      const result: IdentifyCustomerResponse =
+        await sut.identify.identifyCustomer(sutFailingConfig);
 
-    if ("error" in result) {
-      expect(result).toHaveProperty("error");
-      expect(result.error).toBeTypeOf("string");
-    } else {
-      expect.fail("Expected an error response");
-    }
-  });
+      if ("error" in result) {
+        expect(result).toHaveProperty("error");
+        expect(result.error).toBeTypeOf("string");
+      } else {
+        expect.fail("Expected an error response");
+      }
+    });
 
-  it("should respond with an api token when valid data is provided", async () => {
-    const result: IdentifyCustomerResponse =
-      await sut.identify.identifyCustomer(sutValidConfig);
+    it("should respond with an api token when valid data is provided", async () => {
+      const result: IdentifyCustomerResponse =
+        await sut.identify.identifyCustomer(sutValidConfig);
 
-    if ("error" in result) {
-      expect.fail("Expected a success response with an apiToken");
-    } else {
-      expect(result).toHaveProperty("apiToken");
-      expect(result.apiToken).toBeTypeOf("string");
-    }
+      if ("error" in result) {
+        expect.fail("Expected a success response with an apiToken");
+      } else {
+        expect(result).toHaveProperty("apiToken");
+        expect(result.apiToken).toBeTypeOf("string");
+      }
+    });
   });
 });

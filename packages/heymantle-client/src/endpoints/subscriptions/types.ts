@@ -17,3 +17,21 @@ export interface SubscriptionsCreateErrorResponse extends MantleErrorResponse {}
 export type SubscriptionsCreateResponse =
   | SubscriptionsCreateSuccessResponse
   | SubscriptionsCreateErrorResponse;
+
+export interface SubscriptionsCancelSuccessResponse {}
+
+export interface SubscriptionsCancelErrorResponse extends MantleErrorResponse {}
+
+export type SubscriptionsCancelResponse =
+  | SubscriptionsCancelSuccessResponse
+  | SubscriptionsCancelErrorResponse;
+
+export type SubscriptionsUpdateInput = Partial<Subscription>;
+
+export interface SubscriptionsUpdateSuccessResponse {}
+
+export interface SubscriptionsUpdateErrorResponse extends MantleErrorResponse {}
+
+export type SubscriptionsUpdateResponse =
+  | SubscriptionsUpdateSuccessResponse
+  | SubscriptionsUpdateErrorResponse;

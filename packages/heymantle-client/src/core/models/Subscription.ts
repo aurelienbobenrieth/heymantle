@@ -13,7 +13,7 @@ import {
 import { DiscountSchema } from "./Discount";
 import { FeatureSchema } from "./Feature";
 import { PlanSchema } from "./Plan";
-import { UsageSchema } from "./Usage";
+import { UsageChargeSchema } from "./UsageCharge";
 
 export const SubscriptionSchema = object({
   id: string(),
@@ -24,7 +24,7 @@ export const SubscriptionSchema = object({
   frozenAt: nullable(string()),
   features: record(string(), FeatureSchema),
   featuresOrder: array(string()),
-  usageCharges: array(UsageSchema),
+  usageCharges: array(UsageChargeSchema),
   createdAt: string(),
   confirmationUrl: string(),
   shopifySubscription: object({

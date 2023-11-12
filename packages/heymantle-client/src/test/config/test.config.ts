@@ -10,6 +10,7 @@ const ConfigSchema = object({
       appId: string(),
       appApiKey: string(),
       planId: string(),
+      discountId: string(),
     }),
     testPlatform: SupportedPlatformSchema,
     shopify: object({
@@ -31,6 +32,7 @@ export const testConfig = parse(ConfigSchema, {
       appId: process.env.MANTLE_TEST_APP_ID,
       appApiKey: process.env.MANTLE_TEST_APP_API_KEY,
       planId: process.env.MANTLE_TEST_PLAN_ID,
+      discountId: process.env.MANTLE_TEST_DISCOUNT_ID,
     },
     testPlatform: process.env.TEST_PLATFORM,
     shopify: {

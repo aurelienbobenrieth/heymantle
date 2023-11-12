@@ -5,9 +5,12 @@ import {
   nullable,
   number,
   object,
+  optional,
   string,
   union,
 } from "valibot";
+
+import { UsageSchema } from "./Usage";
 
 export const FeatureTypeSchema = union([
   literal("boolean"),
@@ -21,7 +24,8 @@ export const FeatureSchema = object({
   type: FeatureTypeSchema,
   description: string(),
   value: nullable(union([boolean(), string()])),
-  displayOrder: number(),
+  usage: optional(nullable(UsageSchema)),
+  displayOrder: optional(number()),
 });
 
 export type FeatureType = Output<typeof FeatureTypeSchema>;

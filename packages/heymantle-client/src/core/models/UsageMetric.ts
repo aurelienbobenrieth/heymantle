@@ -7,6 +7,8 @@ import {
   string,
 } from "valibot";
 
+import { UsageChargeSchema } from "./UsageCharge";
+
 export const UsageMetricSchema = object({
   id: string(),
   name: string(),
@@ -19,6 +21,7 @@ export const UsageMetricSchema = object({
   last_90DaysValue: optional(nullable(number())),
   last_365DaysValue: optional(nullable(number())),
   allTimeValue: optional(nullable(number())),
+  usageCharge: optional(UsageChargeSchema),
 });
 
 export type Usage = Output<typeof UsageMetricSchema>;

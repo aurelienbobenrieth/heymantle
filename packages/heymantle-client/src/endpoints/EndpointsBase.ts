@@ -17,6 +17,19 @@ interface PostRequestInput<TBody> {
 export default class EndpointsBase {
   constructor(protected client: MantleClient) {}
 
+  protected async deleteRequest<TReturnType, TBody extends UnknownJson>({
+    url,
+    body,
+    headers,
+  }: PostRequestInput<TBody>): Promise<TReturnType> {
+    return await this.client.makeRequest<TReturnType>({
+      method: "DELETE",
+      url,
+      body,
+      headers,
+    });
+  }
+
   protected async getRequest<TReturnType>({
     url,
     headers,
@@ -35,6 +48,19 @@ export default class EndpointsBase {
   }: PostRequestInput<TBody>): Promise<TReturnType> {
     return await this.client.makeRequest<TReturnType>({
       method: "POST",
+      url,
+      body,
+      headers,
+    });
+  }
+
+  protected async putRequest<TReturnType, TBody extends UnknownJson>({
+    url,
+    body,
+    headers,
+  }: PostRequestInput<TBody>): Promise<TReturnType> {
+    return await this.client.makeRequest<TReturnType>({
+      method: "PUT",
       url,
       body,
       headers,

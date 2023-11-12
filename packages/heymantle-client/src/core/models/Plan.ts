@@ -3,8 +3,10 @@ import {
   array,
   boolean,
   literal,
+  nullable,
   number,
   object,
+  optional,
   record,
   string,
   union,
@@ -31,9 +33,11 @@ export const PlanSchema = object({
   updatedAt: string(),
   features: record(string(), FeatureSchema),
   featuresOrder: array(string()),
+  usageChargeCappedAmount: optional(nullable(number())),
   usageCharges: array(UsageChargeSchema),
   customFields: record(string(), union([string(), number()])),
   discounts: array(DiscountSchema),
+  autoAppliedDiscount: optional(nullable(DiscountSchema)),
 });
 
 export type PlanInterval = Output<typeof PlanIntervalSchema>;

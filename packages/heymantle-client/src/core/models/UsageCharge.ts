@@ -4,6 +4,7 @@ import {
   nullable,
   number,
   object,
+  optional,
   string,
   union,
 } from "valibot";
@@ -20,7 +21,10 @@ export const UsageChargeSchema = object({
   type: UsageChargeTypeSchema,
   terms: nullable(string()),
   cappedAmount: number(),
-  eventName: string(),
+  eventName: optional(string()),
+  limitEventName: optional(nullable(string())),
+  limitMin: optional(nullable(number())),
+  limitMax: optional(nullable(number())),
 });
 
 export type UsageChargeType = Output<typeof UsageChargeTypeSchema>;

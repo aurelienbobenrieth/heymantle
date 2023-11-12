@@ -4,7 +4,10 @@ import { beforeEach, describe, expect, it } from "vitest";
 import "#core/libs/env/dotenv.lib";
 import { SubscriptionSchema } from "#core/models/Subscription";
 import { testConfig } from "#test/config/test.config";
-import { sutFailingMantleCustomerApiToken, sutValidMantleCustomerApiToken } from "#test/data/mantle-customer-token";
+import {
+  sutFailingMantleCustomerApiToken,
+  sutValidMantleCustomerApiToken,
+} from "#test/data/mantle-customer-token";
 
 import MantleClient from "../../MantleClient";
 import { buildWithApiKeyClientInstance } from "../../test/MantleClientBuilder";
@@ -16,7 +19,6 @@ describe("SubscriptionsEndpoint", () => {
     planId: "<INVALID_PLAN_ID>",
     returnUrl: "<INVALID_RETURN_URL>",
   };
-
   const sutValidCreateConfig: SubscriptionsCreateInput = {
     planId: testConfig.private.mantle.planId,
     returnUrl: "https://example.com",
@@ -80,10 +82,10 @@ describe("SubscriptionsEndpoint", () => {
 
     /**
      * Not implemented yet because we cannot programmatically activate a subscription yet
-     * 
+     *
      * Also there currently is an issue with the update of a Shopify subscription `cappedAmount`
      * for subscriptions with tier based pricing.
-     * 
+     *
      */
     it.todo("@todo: should respond with the appropriate object/data");
   });
@@ -104,7 +106,7 @@ describe("SubscriptionsEndpoint", () => {
 
     /**
      * Not implemented yet because we cannot programmatically activate a subscription yet
-     * 
+     *
      */
     it.todo("@todo: should respond with the appropriate object/data");
   });

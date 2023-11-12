@@ -3,5 +3,6 @@ export const routesV1 = {
     customer: "/customer",
     identify: "/identify",
     subscriptions: "/subscriptions",
+    usageEvents: "/usage_events",
   },
 };

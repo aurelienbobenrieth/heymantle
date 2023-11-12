@@ -3,6 +3,7 @@ import { libConfig } from "#core/config/lib.config";
 import CustomerEndpoint from "./endpoints/customer/CustomerEndpoint";
 import IdentifyEndpoint from "./endpoints/identify/IdentifyEndpoint";
 import SubscriptionsEndpoint from "./endpoints/subscriptions/SubscriptionsEndpoint";
+import UsageEventsEndpoint from "./endpoints/usage_events/UsageEvents";
 import { AllowedHeaders, MantleClientProps, MantleRequestInput } from "./types";
 
 export default class MantleClient {
@@ -14,6 +15,7 @@ export default class MantleClient {
   public customer: CustomerEndpoint;
   public identify: IdentifyEndpoint;
   public subscriptions: SubscriptionsEndpoint;
+  public usageEvents: UsageEventsEndpoint;
 
   private constructor({
     appId,
@@ -31,6 +33,7 @@ export default class MantleClient {
     this.customer = new CustomerEndpoint(this);
     this.identify = new IdentifyEndpoint(this);
     this.subscriptions = new SubscriptionsEndpoint(this);
+    this.usageEvents = new UsageEventsEndpoint(this);
   }
 
   public static withApiKey({

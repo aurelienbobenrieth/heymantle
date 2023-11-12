@@ -25,7 +25,7 @@ describe("Webhooks", () => {
         "X-Mantle-Hmac-SHA256": "<INVALID_SIGNATURE>",
       };
 
-      const result = await sut.webhooks.validate({
+      const result = sut.webhooks.validate({
         headers: new Headers(forgedWebhookHeaders),
         body: validPlanUpdatedWebhookBody,
       });
@@ -37,7 +37,7 @@ describe("Webhooks", () => {
     });
 
     it("should respond with with a valid boolean object when coming from Mantle", async () => {
-      const result = await sut.webhooks.validate({
+      const result = sut.webhooks.validate({
         headers: new Headers(validPlanUpdatedWebhookHeaders),
         body: validPlanUpdatedWebhookBody,
       });

@@ -3,7 +3,7 @@ import { libConfig } from "#core/config/lib.config";
 import CustomerEndpoint from "./endpoints/customer/CustomerEndpoint";
 import IdentifyEndpoint from "./endpoints/identify/IdentifyEndpoint";
 import SubscriptionsEndpoint from "./endpoints/subscriptions/SubscriptionsEndpoint";
-import UsageEventsEndpoint from "./endpoints/usage_events/UsageEvents";
+import UsageEventsEndpoint from "./endpoints/usage-events/UsageEvents";
 import {
   AllowedBuildHeaders,
   MantleClientProps,

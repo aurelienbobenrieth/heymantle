@@ -36,8 +36,7 @@ describe("IdentifyEndpoint", () => {
 
   describe("identifyCustomer", () => {
     it("should respond with an error message when invalid data is provided", async () => {
-      const result: IdentifyCustomerResponse =
-        await sut.identify.identifyCustomer(sutFailingConfig);
+      const result = await sut.identify.identifyCustomer(sutFailingConfig);
 
       if ("error" in result) {
         expect(result).toHaveProperty("error");
@@ -48,8 +47,7 @@ describe("IdentifyEndpoint", () => {
     });
 
     it("should respond with an api token when valid data is provided", async () => {
-      const result: IdentifyCustomerResponse =
-        await sut.identify.identifyCustomer(sutValidConfig);
+      const result = await sut.identify.identifyCustomer(sutValidConfig);
 
       if ("error" in result) {
         expect.fail("Expected a success response with an apiToken");

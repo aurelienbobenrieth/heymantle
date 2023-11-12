@@ -4,7 +4,12 @@ import CustomerEndpoint from "./endpoints/customer/CustomerEndpoint";
 import IdentifyEndpoint from "./endpoints/identify/IdentifyEndpoint";
 import SubscriptionsEndpoint from "./endpoints/subscriptions/SubscriptionsEndpoint";
 import UsageEventsEndpoint from "./endpoints/usage_events/UsageEvents";
-import { AllowedHeaders, MantleClientProps, MantleRequestInput } from "./types";
+import {
+  AllowedBuildHeaders,
+  MantleClientProps,
+  MantleRequestInput,
+} from "./types";
+import Webhooks from "./webhooks/Webhooks";
 
 export default class MantleClient {
   private appApiKey: string;
@@ -16,6 +21,7 @@ export default class MantleClient {
   public identify: IdentifyEndpoint;
   public subscriptions: SubscriptionsEndpoint;
   public usageEvents: UsageEventsEndpoint;
+  public webhooks: Webhooks;
 
   private constructor({
     appId,
@@ -34,6 +40,8 @@ export default class MantleClient {
     this.identify = new IdentifyEndpoint(this);
     this.subscriptions = new SubscriptionsEndpoint(this);
     this.usageEvents = new UsageEventsEndpoint(this);
+
+    this.webhooks = new Webhooks(this);
   }
 
   public static withApiKey({
@@ -49,6 +57,10 @@ export default class MantleClient {
     }
 
     return new MantleClient({ appId, appApiKey, apiVersion, logger });
+  }
+
+  public getAppApiKey(): string {
+    return this.appApiKey;
   }
 
   public async makeRequest<TReturnType>({
@@ -71,9 +83,9 @@ export default class MantleClient {
   }
 
   private buildHeaders(
-    inputHeaders?: Partial<AllowedHeaders>,
-  ): Partial<AllowedHeaders> {
-    const headers: Partial<AllowedHeaders> = {
+    inputHeaders?: Partial<AllowedBuildHeaders>,
+  ): Partial<AllowedBuildHeaders> {
+    const headers: Partial<AllowedBuildHeaders> = {
       Accept: "application/json",
       "Content-Type": "application/json",
       "X-Mantle-App-Id": this.appId,

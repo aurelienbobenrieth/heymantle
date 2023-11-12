@@ -12,6 +12,8 @@ import {
   union,
 } from "valibot";
 
+import { CurrencyCodeSchema } from "#types/money.types";
+
 import { DiscountSchema } from "./Discount";
 import { FeatureSchema } from "./Feature";
 import { UsageChargeSchema } from "./UsageCharge";
@@ -25,7 +27,7 @@ export const PlanSchema = object({
   id: string(),
   name: string(),
   amount: number(),
-  currencyCode: string(),
+  currencyCode: CurrencyCodeSchema,
   public: boolean(),
   trialDays: number(),
   interval: PlanIntervalSchema,

@@ -25,7 +25,7 @@ describe("UsageEventsEndpoint", () => {
 
   describe("send", () => {
     it("should respond with an error message when invalid data is provided", async () => {
-      const result: UsageEventsSendResponse = await sut.usageEvents.send(
+      const result = await sut.usageEvents.send(
         sutFailingMantleCustomerApiToken,
         sutFailingConfig,
       );
@@ -39,7 +39,7 @@ describe("UsageEventsEndpoint", () => {
     });
 
     it("shuld response with a success json object", async () => {
-      const result: UsageEventsSendResponse = await sut.usageEvents.send(
+      const result = await sut.usageEvents.send(
         sutValidMantleCustomerApiToken,
         sutValidConfig,
       );

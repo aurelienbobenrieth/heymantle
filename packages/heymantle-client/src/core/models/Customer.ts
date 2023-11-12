@@ -3,9 +3,11 @@ import {
   array,
   boolean,
   nullable,
+  number,
   object,
   record,
   string,
+  union,
 } from "valibot";
 
 import { FeatureSchema } from "./Feature";
@@ -20,7 +22,7 @@ export const CustomerSchema = object({
   subscription: nullable(SubscriptionSchema),
   features: record(string(), FeatureSchema),
   usage: UsageSchema,
-  customFields: record(string(), string()),
+  customFields: record(string(), union([string(), number()])),
 });
 
 export type Customer = Output<typeof CustomerSchema>;

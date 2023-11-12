@@ -1,16 +1,16 @@
 import { UnknownJson } from "#types/utils.types";
 
 import MantleClient from "../MantleClient";
-import { AllowedHeaders } from "../types";
+import { AllowedBuildHeaders } from "../types";
 
 interface GetRequestInput {
-  headers?: Partial<AllowedHeaders>;
+  headers?: Partial<AllowedBuildHeaders>;
   url: string;
 }
 
 interface PostRequestInput<TBody> {
   body?: TBody;
-  headers?: Partial<AllowedHeaders>;
+  headers?: Partial<AllowedBuildHeaders>;
   url: string;
 }
 

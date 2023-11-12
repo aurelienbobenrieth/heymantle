@@ -10,15 +10,26 @@ export interface MantleClientProps {
 
 export interface MantleRequestInput {
   body?: UnknownJson;
-  headers?: Partial<AllowedHeaders>;
+  headers?: Partial<AllowedBuildHeaders>;
   method?: HttpMethod;
   url: string;
 }
 
-export interface AllowedHeaders {
-  "X-Mantle-App-Id": string;
-  "X-Mantle-App-Api-Key": string;
+export interface MantleHeaders {
+  "X-Mantle-App-Id"?: string;
+  "X-Mantle-App-Api-Key"?: string;
   "X-Mantle-Customer-Api-Token"?: string;
+  "X-Mantle-Hmac-SHA256"?: string;
+  "X-Mantle-Webhook-Topic"?: string;
+}
+
+export interface AllowedBuildHeaders
+  extends Partial<
+    Pick<
+      MantleHeaders,
+      "X-Mantle-App-Id" | "X-Mantle-App-Api-Key" | "X-Mantle-Customer-Api-Token"
+    >
+  > {
   "Content-Type"?: ContentType;
   Accept?: string;
 }

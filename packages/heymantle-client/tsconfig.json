@@ -1,0 +1,17 @@
+{
+  "extends": "@heymantle/tsconfig/base.json",
+  "compilerOptions": {
+    "target": "ES2017",
+    "module": "commonjs",
+    "types": ["node"],
+    "outDir": "./dist",
+    "rootDir": "./",
+    "baseUrl": "./",
+    "paths": {
+      "#core/*": ["./src/core/*"],
+      "#test/*": ["./src/test/*"],
+      "#types/*": ["./src/types/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "vitest.config.ts"]
+}

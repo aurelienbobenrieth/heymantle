@@ -1,0 +1,6 @@
+{
+  "tsco.useRegions": false,
+  "tsco.addMemberCountInRegionName": false,
+  "tsco.organizeOnSave": true,
+  "tsco.addPublicModifierIfMissing": true
+}

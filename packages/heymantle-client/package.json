@@ -1,0 +1,58 @@
+{
+  "name": "@heymantle/client",
+  "version": "0.1.0",
+  "keywords": [
+    "heymantle",
+    "mantle",
+    "shopify"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aurelienbobenrieth/heymantle.git",
+    "directory": "packages/heymantle-client"
+  },
+  "license": "UNLICENSED",
+  "author": {
+    "name": "Aurélien BOBENRIETH",
+    "url": "https://github.com/aurelienbobenrieth",
+    "githubUsername": "aurelienbobenrieth"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm clean:dist & tsc & tsc-alias & pnpm reorganise:dist",
+    "clean:dist": "del-cli --force ./dist",
+    "lint": "pnpm lint:types && pnpm lint:eslint && pnpm lint:prettier",
+    "lint:eslint": "eslint --ext .ts,.tsx .",
+    "lint:eslint:fix": "eslint --ext .ts,.tsx --fix .",
+    "lint:fix": "pnpm lint:eslint:fix && pnpm lint:prettier:write",
+    "lint:prettier": "prettier --check .",
+    "lint:prettier:write": "prettier --write .",
+    "lint:types": "tsc --noEmit",
+    "reorganise:dist": "cpy \"./dist/src/**/*\" \"!./dist/src/test/**/*\" \"!./dist/src/**/*.it-test.*\" \"./dist\" & del-cli --force ./dist/src",
+    "test": "vitest run",
+    "test:coverage": "vitest",
+    "test:watch": "vitest"
+  },
+  "prettier": "@heymantle/prettier-config",
+  "dependencies": {
+    "valibot": "^0.20.0"
+  },
+  "devDependencies": {
+    "@heymantle/prettier-config": "workspace:*",
+    "@heymantle/tsconfig": "workspace:*",
+    "@types/node": "^20.8.10",
+    "cpy-cli": "^5.0.0",
+    "del-cli": "^5.1.0",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.52.0",
+    "eslint-config-heymantle": "workspace:*",
+    "prettier": "^3.0.3",
+    "tsc-alias": "^1.8.8",
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
+  }
+}

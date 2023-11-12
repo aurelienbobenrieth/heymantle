@@ -1,26 +1,27 @@
 {
-  "name": "heymantle",
-  "version": "0.0.1",
-  "description": "HeyMantle client & server packages.",
+  "name": "@heymantle/base",
   "license": "UNLICENSED",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "lint:types": "tsc --noEmit",
-    "lint:eslint": "eslint --ext .ts,.tsx .",
-    "lint:eslint:fix": "eslint --ext .ts,.tsx --fix .",
-    "lint:prettier": "prettier --check .",
-    "lint:prettier:write": "prettier --write .",
-    "lint": "yarn lint:types && yarn lint:eslint && yarn lint:prettier",
-    "lint:fix": "yarn lint:eslint:fix && yarn lint:prettier:write"
+    "lint:types": "turbo run lint:types",
+    "lint:eslint": "turbo run lint:eslint",
+    "lint:eslint:fix": "turbo run lint:eslint:fix",
+    "lint:prettier": "turbo run lint:prettier",
+    "lint:prettier:write": "turbo run lint:prettier:write",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix"
   },
   "devDependencies": {
-    "@types/node": "^20.8.10",
+    "eslint-config-heymantle": "workspace:*",
+    "@heymantle/prettier-config": "workspace:*",
+    "@heymantle/tsconfig": "workspace:*",
     "eslint": "^8.52.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.4",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
     "prettier": "^3.0.3",
+    "turbo": "^1.10.16",
     "typescript": "^5.2.2"
-  }
+  },
+  "prettier": "@heymantle/prettier-config"
 }

@@ -1,1 +1,32 @@
+# see https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
 **/node_modules
+**/.turbo
+
+# debug
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/.pnpm-debug.log*
+
+# misc
+.DS_Store
+*.pem
+
+# turbo
+.turbo
+
+# code editor
+.vscode
+
+# env files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.devcontainer/devcontainer.env
+
+# dist
+dist

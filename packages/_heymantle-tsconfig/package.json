@@ -1,0 +1,11 @@
+{
+  "name": "@heymantle/tsconfig",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "lint": "pnpm lint:prettier",
+    "lint:fix": "pnpm lint:prettier:write",
+    "lint:prettier": "prettier --check .",
+    "lint:prettier:write": "prettier --write ."
+  }
+}

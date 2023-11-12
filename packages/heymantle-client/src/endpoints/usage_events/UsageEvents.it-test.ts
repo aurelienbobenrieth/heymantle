@@ -8,7 +8,7 @@ import {
 
 import MantleClient from "../../MantleClient";
 import { buildWithApiKeyClientInstance } from "../../test/MantleClientBuilder";
-import { UsageEventsSendInput, UsageEventsSendResponse } from "./types";
+import { UsageEventsSendInput } from "./types";
 
 describe("UsageEventsEndpoint", () => {
   let sut: MantleClient;

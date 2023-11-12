@@ -6,7 +6,7 @@ import { MyshopifyDomain } from "#types/shopify.types";
 
 import MantleClient from "../../MantleClient";
 import { buildWithApiKeyClientInstance } from "../../test/MantleClientBuilder";
-import { IdentifyCustomerInput, IdentifyCustomerResponse } from "./types";
+import { IdentifyCustomerInput } from "./types";
 
 describe("IdentifyEndpoint", () => {
   let sut: MantleClient;

@@ -27,3 +27,6 @@
 .env.test
 .env.production
 .devcontainer/devcontainer.env
+
+# dist
+dist

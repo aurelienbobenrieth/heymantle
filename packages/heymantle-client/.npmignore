@@ -1,0 +1,17 @@
+# test files
+vitest.*.*
+*.*.test.ts
+*.it-test.ts
+coverage
+
+# env files
+.env.*
+
+# `npm pack`
+*.tgz
+
+# dependencies
+node_modules
+
+# docs
+README.md

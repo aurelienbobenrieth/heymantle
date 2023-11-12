@@ -1,10 +1,12 @@
 {
   "extends": "@heymantle/tsconfig/base.json",
   "compilerOptions": {
+    "target": "ES2017",
     "module": "commonjs",
     "types": ["node"],
     "outDir": "./dist",
-    "baseUrl": ".",
+    "rootDir": "./",
+    "baseUrl": "./",
     "paths": {
       "#core/*": ["./src/core/*"],
       "#test/*": ["./src/test/*"],

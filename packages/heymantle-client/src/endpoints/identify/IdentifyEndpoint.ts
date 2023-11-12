@@ -1,5 +1,4 @@
 import { routesV1 } from "#core/config/routes.config";
-import "#core/libs/env/dotenv.lib";
 
 import EndpointsBase from "../EndpointsBase";
 import { IdentifyCustomerInput, IdentifyCustomerResponse } from "./types";

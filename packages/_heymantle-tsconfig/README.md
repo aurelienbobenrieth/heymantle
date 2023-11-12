@@ -1,10 +1,10 @@
 # @heymantle/tsconfig
 
-This repo contains [`@heymantle`]'s opiniated [tsconfig] rules.
+This repo contains [`@heymantle`]'s opinionated [tsconfig] rules.
 
 ## Usage
 
-To enable a [tsconfig], it is required to add an `extends` property within the `tsconfig.json` file of one the package of this monorepo :
+To enable a [tsconfig], it is required to add an `extends` property within the `tsconfig.json` file of one of the package of this monorepo :
 
 ```json
 "extends": "@heymantle/tsconfig/base.json",

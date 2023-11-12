@@ -1,12 +1,12 @@
 # eslint-config-heymantle
 
-This repo contains [`@heymantle`]'s opiniated [ESLint] configs.
+This repo contains [`@heymantle`]'s opinionated [ESLint] configs.
 
 ## Usage
 
-To enable a configuration file, it is required to add an `extends` property as well as a `root` property set to `true` within the `.eslintrc.cjs` file of one the package of this monorepo :
+To enable a configuration file, it is required to add an `extends` property as well as a `root` property set to `true` within the `.eslintrc.cjs` file of one off the package of this monorepo :
 
-```js
+```javascript
 module.exports = {
   root: true,
   extends: ["heymantle/server"],
@@ -21,7 +21,7 @@ If you need to create another set of properties for a specific package, you can 
 
 and then import it in your package like this:
 
-```js
+```javascript
 module.exports = {
   root: true,
   extends: ["heymantle/some-example-conf"],
